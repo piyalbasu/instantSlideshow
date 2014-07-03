@@ -1,0 +1,261 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+		-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+		-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+		-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+		-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+		background-color:#E4E4E4;
+		background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+		background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+		background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+		background-image:-webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				color-stop(0, #A7A7A7),
+				color-stop(0.51, #E4E4E4)
+		);
+		background-attachment:fixed;
+		font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+		font-size:12px;
+		height:100%;
+		margin:0px;
+		padding:0px;
+		text-transform:uppercase;
+		width:100%;
+}
+/*------------------------------------*\
+		RESET
+\*------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/
+		v2.0b1 | 201101
+		NOTE:WORK IN PROGRESS
+		USE WITH CAUTION AND TEST WITH ABANDON */
+
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video{
+		margin:0;
+		padding:0;
+		border:0;
+		outline:0;
+		font-size:100%;
+		font:inherit;
+		vertical-align:baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{
+		display:block;
+}
+body{
+		line-height:1;
+}
+ol,ul{
+		list-style:none;
+}
+blockquote,q{
+		quotes:none;
+}
+blockquote:before,blockquote:after,
+q:before,q:after{
+		content:’’;
+		content:none;
+}
+/* remember to define visible focus styles!
+:focus{
+		outline:?????;
+} */
+
+/* remember to highlight inserts somehow! */
+ins{
+		text-decoration:none;
+}
+del{
+		text-decoration:line-through;
+}
+
+table{
+		border-collapse:collapse;
+		border-spacing:0;
+}
+
+img::-moz-selection {
+    background-color: transparent;
+    color: #000;
+}
+
+img::selection {
+    background-color: transparent;
+    color: #000;
+}
+
+
+
+/*------------------------------------*\
+
+\*------------------------------------*/
+/* GO! */
+
+body, html {
+		width: 1024px;
+		height: 768px;
+}
+
+#blocker, #swipeHandler {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		opacity: .5;
+}
+
+#blocker {
+		z-index: -1;
+
+}
+
+#blocker.show{
+		background: #000;
+		z-index:20;
+}
+
+#homeBtn {
+		background: url('../img/home.png');
+		height: 30px;
+		position: absolute;
+		z-index: 20;
+		margin: 20px 0 0 970px;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		width: 30px;
+}
+
+
+#swipeHandler {
+		z-index: 19;
+}
+
+#viewport {
+		width: 1024px;
+		height: 768px;
+		overflow:hidden;
+}
+
+#wrapper {
+	 -webkit-transform: translate3d(0px, 0, 0);
+		-moz-transform: translate3d(0px, 0, 0);
+		transform: translate3d(0px, 0, 0);
+
+
+		transition: transform .3s;
+		-moz-transition: -moz-transform .3s;
+		-webkit-transition:-webkit-transform .3s; /* Safari */
+
+		transition-timing-function: ease-in-out;
+		-moz-transition-timing-function: ease-in-out;
+		-webkit-transition-timing-function: ease-in-out;
+}
+
+ul {
+
+height: 768px;
+width: 10000000px;
+
+}
+
+ul li {
+		width: 1024px;
+		height: 768px;
+		display: inline-block;
+		list-style-type: none;
+		background-size: contain !important;
+		background-repeat: no-repeat !important;
+		position: absolute;
+}
+
+.prev{
+		margin-left: -1024px;
+}
+
+.active{
+		margin-left: 0;
+}
+
+.next{
+		margin-left:1024px;
+}
+
+#captionBG, #caption {
+		position: absolute;
+		height: 60px;
+		z-index: 10;
+
+}
+
+#captionBG {
+		opacity: .5;
+		background: #000;
+		margin-top: 708px;
+		width: 1024px;
+}
+
+#caption {
+		color: #fff;
+		font-family: Helvetica;
+		margin-top: 0px;
+		padding: 20px 40px;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+}
+
+#caption.capTrans {
+		animation: fade .6s;
+		-moz-animation: fade .6s;
+		-webkit-animation: fade .6s;
+}
+
+@keyframes fade
+		{
+		from {opacity: 0;}
+		to {opacity: 1.0;}
+		}
+
+@-moz-keyframes fade
+		{
+		from {opacity: 0;}
+		to {opacity: 1.0;}
+		}
+
+@-webkit-keyframes fade /* Safari and Chrome */
+		{
+		from {opacity: 0;}
+		to {opacity: 1.0;}
+		}
